@@ -22,4 +22,13 @@ describe('EmployeelistComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  let employeelist;
+  let componentFunction;
+  it('check the employee list', ()=>{
+      employeelist = null;
+      employeelist = componentFunction.getEmployee();
+      expect(employeelist.length).toBeGreaterThan(0);
+      expect(employeelist.length).toBe(1);
+  })
 });
