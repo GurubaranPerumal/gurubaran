@@ -1,0 +1,28 @@
+<div class="login-form"> 
+    <strong *ngIf="submitMessage" class="error-message">{{submitMessage}}</strong>   
+<form class="login" [formGroup]="loginForm">
+    <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
+    <h4 class="modal-title">Login to Your Account</h4>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter Username" formControlName="userId" required="required">
+        <mat-error class="small" *ngIf="loginForm.get('userId').dirty && 
+        loginForm.get('userId').hasError('required')">UserName is required Field !!!</mat-error>
+
+        <mat-error class="small" *ngIf="loginForm.get('userId').dirty && 
+        loginForm.get('userId').hasError('minlength')">UserName must be of 3 characters !!!</mat-error>
+    
+    </div>
+   
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="Enter Password" required="required" formControlName="userPassword">
+            <mat-error class="small" *ngIf="loginForm.get('userPassword').dirty && 
+            loginForm.get('userPassword').hasError('required')">Password is required Field !!!</mat-error>
+
+            <mat-error class="small" *ngIf="loginForm.get('userPassword').dirty && 
+            loginForm.get('userPassword').hasError('minlength')">Password must be of 3 characters !!!</mat-error>
+    </div>
+    
+    <input type="submit" class="btn btn-primary btn-block btn-lg" (click)="loginSubmit()" value="Login">              
+</form>			
+
+                                                          

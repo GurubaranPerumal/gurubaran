@@ -1,0 +1,49 @@
+<strong *ngIf="errorMessage" class="error-message">{{errorMessage}}</strong> 
+<div class="registerPanel">
+    <div class="editHeader">
+        <h3>Employee Registration Form</h3>
+    </div>
+    <div class="registerForm">
+            <mat-form-field>
+                    <input class="firstname" matInput type="text" placeholder="Enter user Id" [formControl]="employeeId">
+            <mat-error>
+                {{errors.employeeId}}
+            </mat-error>      
+            </mat-form-field>
+            <mat-form-field>
+                <input class="firstname" matInput type="text" placeholder="Enter first name" [formControl]="firstName">
+            <mat-error>
+                {{errors.firstName}}
+            </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input class="lastname" matInput type="text" placeholder="Enter last name" [formControl]="lastName">
+              <mat-error>
+                {{errors.lastName}}
+            </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input class="username" matInput type="text" placeholder="Enter Mobile" [formControl]="employeeMobile" required>
+            </mat-form-field>
+            
+
+          <mat-form-field>
+            <input class="password" matInput type="password" placeholder="Enter Password" [formControl]="employeePassword">
+            <mat-error>
+                {{errors.employeePassword}}
+            </mat-error>
+         </mat-form-field>
+         <mat-form-field>
+            <input matInput placeholder="Confirm password" type="password" class="form-control" [formControl]="confirmPassword" 
+            [errorStateMatcher]="confirmValidParentMatcher">
+            <mat-error>
+                {{errors.confirmPassword}}
+            </mat-error>
+        </mat-form-field>
+            <div>
+                <button class="regButton" (click)="addEmployee()">Submit</button>
+            </div>
+    </div>
+</div>
+

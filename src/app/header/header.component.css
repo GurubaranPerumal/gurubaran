@@ -1,0 +1,28 @@
+.keep-c-toggle-view {
+	width: 100%;
+	margin-left: 93%;
+	cursor: pointer;
+}
+.header
+{
+    color: whitesmoke;
+    font-family: 'Blinker', sans-serif;
+    font-weight: bold;
+    background-color: black;
+}
+.navColor{
+    background-image: linear-gradient(to right top, #e35132, #e04c42, #da494f, #d2485b, #c94965);
+    color:white;
+}
+
+.navbar-toggler {
+    border: 1px solid white !important;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: white !important;
+}
+
+.listViewIcon {
+    margin-top: 8px;
+    margin-left: 10px;
+}

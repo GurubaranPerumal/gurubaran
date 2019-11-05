@@ -1,0 +1,26 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "employeeId": "use1@gmail.com",
+      "firstName": "user",
+      "lastName": "user1",
+      "employeeMobile": 680946134
+    },
+    {
+      "id": 2,
+      "employeeId": "use12@gmail.com",
+      "firstName": "user11",
+      "lastName": "user11",
+      "employeeMobile": 9780946134
+    },
+    {
+      "employeeId": "use@gmail.com",
+      "employeeMobile": "989876655533",
+      "employeePassword": "Gurubaran@123",
+      "firstName": "userddd",
+      "lastName": "ddff",
+      "id": 3
+    }
+  ]
+}
