@@ -26,6 +26,10 @@ const testConfig = {
     status: 403,
     statusText: 'Forbidden',
     url: 'http://localhost:3000/employee/'
+  },
+  positive: {
+    status: '200',
+    statusText: 'Success'
   }
 };
 describe('LoginComponent', () => {
@@ -78,10 +82,10 @@ describe('LoginComponent', () => {
   it('should handle to login into the system', fakeAsync(() => {
     positiveResponse = testConfig.positive;
     spyRouteToDashboard = spyOn(RouterService, 'routeToHomepage').and.callFake(() => {});
-    const username = new FormControl('stranger');
-    component.username = username;
+    const username = new FormControl('user');
+    component.userId = username;
     const password = new FormControl('password');
-    component.password = password;
+    component.userPassword = password;
     component.loginSubmit();
     expect('login successfully');
     }));
@@ -92,10 +96,10 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
     debugElement = fixture.debugElement.query(By.css('.error-message'));
     
-    const username = new FormControl('stranger');
-    component.username = username;
+    const username = new FormControl('user');
+    component.userPassword = username;
     const password = new FormControl('password');
-    component.password = password;
+    component.userPassword = password;
     component.loginSubmit();
 
     tick();
