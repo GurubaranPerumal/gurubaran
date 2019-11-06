@@ -13,7 +13,6 @@ export class LoginComponent  {
 
   userObj: user;
     loginForm: FormGroup;
-    bearerToken: string;
     submitMessage: string;
 
     userId = new FormControl();

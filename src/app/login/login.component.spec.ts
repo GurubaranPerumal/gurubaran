@@ -108,4 +108,6 @@ describe('LoginComponent', () => {
       expect(false).toBe(true,
         `Failed to login`);
     }
+  
   }));
+});
