@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
-
+import {of as observableOf, throwError as observableThrowError,  Observable } from 'rxjs';
 import { EmployeeComponent } from './employee.component';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
@@ -23,12 +23,12 @@ describe('EmployeeComponent', () => {
   const testConfig = {
     addEmployee: {
       positive: {
-        id: 3,
-        Firstname: 'user1',
+        employeeId: 3,
+        FfrstName: 'user1',
         lastName: 'user',
-        mobile: '8980565555'
+        employeeMobile: '8980565555'
       },
-      errorMessage: 'FirstName, LastName and Mobile are required fields'
+      errorMessage: 'EmployeeId, FirstName, LastName and Mobile are required fields'
     },
     error404: {
       message: 'Http failure response for http://localhost:3000/employee: 404 Not Found',
@@ -49,6 +49,7 @@ describe('EmployeeComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EmployeeComponent);
     component = fixture.componentInstance;
+    employeeService = fixture.debugElement.injector.get(EmployeeService);
     fixture.detectChanges();
   });
 
@@ -65,7 +66,7 @@ describe('EmployeeComponent', () => {
       doneButton.click();
       tick();
       fixture.detectChanges();
-      element = DebugElement.nativeElement;
+      element = debugElement.nativeElement;
       expect(element.textContent).toBe(errorMessage,
         `if there is no value in Firstname or tex input fields, assigne error message to errorMessage variable
         as 'Firstname ,lastname,mobile are required fields'`);

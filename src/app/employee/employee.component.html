@@ -1,4 +1,4 @@
-<strong *ngIf="errorMessage" class="error-message">{{errorMessage}}</strong> 
+<label *ngIf="errorMessage" class="error-message">{{errorMessage}}</label>
 <div class="registerPanel">
     <div class="editHeader">
         <h3>Employee Registration Form</h3>
@@ -23,17 +23,18 @@
                 {{errors.lastName}}
             </mat-error>
             </mat-form-field>
+
             <mat-form-field>
-                <input class="username" matInput type="text" placeholder="Enter Mobile" [formControl]="employeeMobile" required>
+                <input class="username" matInput type="text" placeholder="Enter Mobile" [formControl]="employeeMobile">
             </mat-form-field>
             
-
           <mat-form-field>
             <input class="password" matInput type="password" placeholder="Enter Password" [formControl]="employeePassword">
             <mat-error>
                 {{errors.employeePassword}}
             </mat-error>
          </mat-form-field>
+         
          <mat-form-field>
             <input matInput placeholder="Confirm password" type="password" class="form-control" [formControl]="confirmPassword" 
             [errorStateMatcher]="confirmValidParentMatcher">

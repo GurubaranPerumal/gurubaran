@@ -1,31 +1,32 @@
-import { async, ComponentFixture, TestBed, fakeAsync, tick, tick, tick } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';
 import { RouterService } from 'src/app/Services/router.service';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { By } from 'selenium-webdriver';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatAutocompleteModule, MatButtonModule, MatFormFieldModule } from '@angular/material';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { By } from '@angular/platform-browser';
+
 
 const testConfig = {
   error404: {
-    message: 'Http failure response for http://localhost:3000/auth/v1: 404 Not Found',
+    message: 'Http failure response for http://localhost:3000/login: 404 Not Found',
     name: 'HttpErrorResponse',
     ok: false,
     status : 404,
     statusText: 'Not Found',
-    url: 'http://localhost:3000/employee'
+    url: 'http://localhost:3000/login'
   },
   error403: {
     error: {message: 'Unauthorized'},
-    message: 'Http failure response for http://localhost:3000/employee/: 403 Forbidden',
+    message: 'Http failure response for http://localhost:3000/login/: 403 Forbidden',
     name: 'HttpErrorResponse',
     ok: false,
     status: 403,
     statusText: 'Forbidden',
-    url: 'http://localhost:3000/employee/'
+    url: 'http://localhost:3000/login/'
   },
   positive: {
     status: '200',
@@ -72,6 +73,7 @@ describe('LoginComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+    routerService = fixture.debugElement.injector.get(RouterService);
     fixture.detectChanges();
   });
 
@@ -81,7 +83,7 @@ describe('LoginComponent', () => {
 
   it('should handle to login into the system', fakeAsync(() => {
     positiveResponse = testConfig.positive;
-    spyRouteToDashboard = spyOn(RouterService, 'routeToHomepage').and.callFake(() => {});
+    spyRouteToDashboard = spyOn(routerService, 'routeToHomepage').and.callFake(() => {});
     const username = new FormControl('user');
     component.userId = username;
     const password = new FormControl('password');
@@ -109,9 +111,7 @@ describe('LoginComponent', () => {
       expect(element.textContent).toBe(errorMessage.error.message,
         `should store 'err.error.message' in a varibale 'submitMessage' to show error on login page`);
     } else {
-      expect(false).toBe(true,
-        `Failed to login`);
+      expect(false).toBe(true, `Failed to login`);
     }
-  
   }));
 });

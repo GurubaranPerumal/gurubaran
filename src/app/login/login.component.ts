@@ -33,10 +33,9 @@ export class LoginComponent  {
       if(this.userObj.userId == '' && this.userObj.userPassword == ''){
         this.submitMessage = "User Name and Password Required!";
       } else {
-        if(this.userObj.userId == 'guru@gmail.com' && 
-        this.userObj.userPassword == 'Gurubaran@001') {
+        if(this.userObj.userId == 'guru' && 
+        this.userObj.userPassword == 'guru') {
           this.routerservice.routeToHomepage();
-          this.submitMessage= 'login success fully'
         } else {
           this.submitMessage= 'login failed';
         }
