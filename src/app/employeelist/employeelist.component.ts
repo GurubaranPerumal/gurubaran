@@ -13,7 +13,8 @@ export class EmployeelistComponent implements OnInit {
   constructor(private employeeService: EmployeeService) { }
 
   ngOnInit() {
-    this.employeeService.getEmployee().subscribe(
+    this.employeeService.getEmployee()
+    .subscribe(
       notedetails => this.employee=notedetails,
       err => {
         this.errMessage = err.message

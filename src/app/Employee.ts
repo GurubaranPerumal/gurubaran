@@ -1,17 +1,17 @@
 export class Employee {
-    employeeId:number;
+    employeeId:string;
     firstName:string;
     lastName:string;
-    employeeMobile:number;
+    employeeMobile:string;
     emailId:string;
     employeePassword:string;
     confirmPassword:string;
 
     constructor(){
-        this.employeeId= 0;
+        this.employeeId= "";
         this.firstName = "";
         this.lastName = "";
-        this.employeeMobile = 0;
+        this.employeeMobile = "";
         this.emailId ="";
         this.employeePassword ="";
         this.confirmPassword="";

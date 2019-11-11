@@ -12,6 +12,11 @@ const childRoute: Routes=[
   },
   {
     path:'listEmployee',component:EmployeelistComponent,
+  },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
   }
 ];  
 const routes: Routes = [
@@ -29,9 +34,11 @@ const routes: Routes = [
   
   {
     path: '',
-    redirectTo: 'homepage',
+    redirectTo: 'login',
     pathMatch: 'full'
-  }
+  },
+  {path: '404', component: LoginComponent},
+  {path: '**', redirectTo: '/404'}
   
 ];
 

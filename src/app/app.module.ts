@@ -18,14 +18,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
-//import { AgGridModule } from 'ag-grid-angular';
-import { AngularSlickgridModule } from 'angular-slickgrid';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    //LogincomponentComponent,
     HomepageComponent,
     EmployeeComponent,
     EmployeelistComponent,
